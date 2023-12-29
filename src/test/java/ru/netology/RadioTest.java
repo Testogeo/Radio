@@ -8,6 +8,12 @@ class RadioTest {
     Radio radio = new Radio();
 
     @Test
+    void testSetCurrentStation() {
+        radio.setCurrentStation(5);
+        assertEquals(5, radio.getCurrentStation());
+    }
+
+    @Test
     void shouldChangeStation() {
         assertEquals(0, radio.getCurrentStation());
         radio.setCurrentStation(5);
@@ -77,23 +83,23 @@ class RadioTest {
 
     @Test
     void shouldIncreaseVolume() {
-        radio.setCurrentVolume(9);
+        radio.setCurrentVolume(99);
         radio.increaseVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
     void shouldOverMaxVolume1() {
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(101);
         radio.increaseVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(1, radio.getCurrentVolume());
     }
 
     @Test
     void shouldOverMaxVolume2() {
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
-        assertEquals(1, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test

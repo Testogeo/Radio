@@ -2,49 +2,61 @@ package ru.netology;
 
 public class Radio {
     private int currentStation;
-    private int minStation = 0;
-    private int maxStation = 9;
     private int currentVolume;
-    private int minVolume = 0;
-    private int maxVolume = 10;
+    private int stationLimit = 10;
+
+
+    public Radio(int stationLimit) {
+        this.stationLimit = stationLimit;
+    }
+
+    public Radio() {
+    }
 
     public int getCurrentStation() {
+
         return currentStation;
     }
-    public void setCurrentStation(int currentStation) {
-        if (currentStation < minStation || currentStation > maxStation) {
-            return;
+
+    public void setCurrentStation(int newStation) {
+        if (newStation <= 9 ) {
+            if (newStation >= 0) {
+
+                currentStation = newStation;
+            }
         }
-        this.currentStation = currentStation;
     }
+
     public void nextStation() {
-        if (maxStation <= currentStation) {
-            setCurrentStation(minStation);
+        if (currentStation == 9) {
+            currentStation = 0;
         } else {
-            setCurrentStation(currentStation + 1);
+            currentStation++;
         }
     }
+
     public void previousStation() {
-        if (currentStation <= minStation) {
-            setCurrentStation(maxStation);
+        if (currentStation == 0) {
+            currentStation = 9;
         } else {
 
-            setCurrentStation(currentStation - 1);
+            currentStation--;
         }
     }
+
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < minVolume || currentVolume > maxVolume) {
+    public void setCurrentVolume(int newVolume) {
+        if (newVolume < 0 || newVolume > 100) {
             return;
         }
-        this.currentVolume = currentVolume;
+        this.currentVolume = newVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < maxVolume) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
     }
