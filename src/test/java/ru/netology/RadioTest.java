@@ -9,8 +9,8 @@ class RadioTest {
 
     @Test
     void testSetCurrentStation() {
-        radio.setCurrentStation(5);
-        assertEquals(5, radio.getCurrentStation());
+        radio.setCurrentStation(15);
+        assertEquals(15, radio.getCurrentStation());
     }
 
     @Test
@@ -28,7 +28,7 @@ class RadioTest {
 
     @Test
     void shouldSetStationOverMaxStation() {
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(20);
         assertEquals(0, radio.getCurrentStation());
     }
 
@@ -41,14 +41,14 @@ class RadioTest {
 
     @Test
     void shouldOverMaxStation1() {
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(19);
         radio.nextStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     void shouldOverMaxStation2() {
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(20);
         radio.nextStation();
         assertEquals(1, radio.getCurrentStation());
     }
@@ -64,14 +64,14 @@ class RadioTest {
     void shouldBelowMinStation1() {
         radio.setCurrentStation(0);
         radio.previousStation();
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(19, radio.getCurrentStation());
     }
 
     @Test
     void shouldBelowMinStation2() {
         radio.setCurrentStation(-1);
         radio.previousStation();
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(19, radio.getCurrentStation());
     }
 
     @Test
