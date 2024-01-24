@@ -9,8 +9,8 @@ class RadioTest {
 
     @Test
     void testSetCurrentStation() {
-        radio.setCurrentStation(15);
-        assertEquals(15, radio.getCurrentStation());
+        radio.setCurrentStation(25);
+        assertEquals(25, radio.getCurrentStation());
     }
 
     @Test
@@ -28,7 +28,7 @@ class RadioTest {
 
     @Test
     void shouldSetStationOverMaxStation() {
-        radio.setCurrentStation(20);
+        radio.setCurrentStation(30);
         assertEquals(0, radio.getCurrentStation());
     }
 
