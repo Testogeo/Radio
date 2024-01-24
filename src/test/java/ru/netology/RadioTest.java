@@ -41,14 +41,14 @@ class RadioTest {
 
     @Test
     void shouldOverMaxStation1() {
-        radio.setCurrentStation(19);
+        radio.setCurrentStation(29);
         radio.nextStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     void shouldOverMaxStation2() {
-        radio.setCurrentStation(20);
+        radio.setCurrentStation(30);
         radio.nextStation();
         assertEquals(1, radio.getCurrentStation());
     }
@@ -64,14 +64,14 @@ class RadioTest {
     void shouldBelowMinStation1() {
         radio.setCurrentStation(0);
         radio.previousStation();
-        assertEquals(19, radio.getCurrentStation());
+        assertEquals(29, radio.getCurrentStation());
     }
 
     @Test
     void shouldBelowMinStation2() {
         radio.setCurrentStation(-1);
         radio.previousStation();
-        assertEquals(19, radio.getCurrentStation());
+        assertEquals(29, radio.getCurrentStation());
     }
 
     @Test
